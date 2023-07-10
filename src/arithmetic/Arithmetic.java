@@ -17,6 +17,9 @@ import static java.time.Clock.system;
  */
 public class Arithmetic 
 {
+     public enum Operation {
+        PLUS, MINUS, TIMES, DIVIDE
+    }
 
     /**
      * @param args the command line arguments
@@ -28,8 +31,11 @@ public class Arithmetic
         Scanner in= new Scanner(System.in);
         int n= in.nextInt();
         int m= in.nextInt();
-        double result = r.calculate(m,n);
-        System.out.println("result :" +result); 
+         for (Operation operation : Operation.values()) {
+            double result = r.calculate(m, n, operation);
+            System.out.println(operation + " result: " + result);
+        }
+   
     
     }
 }
